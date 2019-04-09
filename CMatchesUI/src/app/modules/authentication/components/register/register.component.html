@@ -1,0 +1,45 @@
+<body>
+
+    <form class="register-form" #registerForm="ngForm" [style.fontSize.px]=20>
+      <div class="register-block">
+        <div class="row">
+          <h3>Register User</h3>
+         
+        </div>
+        <div class="row">
+          <br><br><br>
+            <mat-progress-bar mode="determinate" [value]="barValue">6677</mat-progress-bar>
+            <br>
+          <mat-form-field class="register-input-full-width">
+            <input id="firstName" matInput placeholder="First Name" [(ngModel)]="newUser.firstName" name="firstName"
+              required #firstName="ngModel" (keyup)="getFirstName(newUser.firstName)">
+            <mat-error *ngIf="firstName.invalid">First Name is mandatory</mat-error>
+          </mat-form-field>
+          <mat-form-field class="register-input-full-width">
+            <input id="lastName" matInput placeholder="Last Name" [(ngModel)]="newUser.lastName" name="lastName"
+              required #lastName="ngModel" (keyup)="getLastName(newUser.lastName)" >
+            <mat-error *ngIf="lastName.invalid">Last Name is mandatory</mat-error>
+          </mat-form-field>
+          <mat-form-field class="register-input-full-width">
+            <input id="userId" matInput placeholder="User Id" [(ngModel)]="newUser.userId" name="userId" required
+              minlength="5" maxlength="10" #userId="ngModel" (keyup)="getUserId(newUser.userId)">
+            <mat-error *ngIf="userId.invalid">User Id: must be 5 to 10 characters long</mat-error>
+          </mat-form-field>
+          <mat-form-field class="register-input-full-width">
+            <input id="password" matInput placeholder="Password" type="password" [(ngModel)]="newUser.password"
+              name="password" required #password="ngModel" (keyup)="getPassword(newUser.password)">
+            <mat-error *ngIf="password.invalid">Password is mandatory</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="row btnRow">
+          <button class="register-user" matTooltip="Info about the action"
+          aria-label="Button that displays a tooltip when focused or hovered over" type="submit" mat-raised-button (click)="registerUser()"
+            color="primary">Register</button>
+          &nbsp;&nbsp;
+          <button type="reset" mat-raised-button color="primary">Clear</button>
+        </div>
+        <br>
+        <a mat-button  routerLink="../login">Already have an account?</a>
+      </div>
+    </form>
+</body>

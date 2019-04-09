@@ -1,0 +1,13 @@
+<div class="card-container">
+<div *ngFor="let matches of match" >
+  <mat-grid-list cols="2" rowHeight="2:1">
+    <mat-card class="mt-6 col-s-12 col-12" >
+        <h2>{{matches.name}}</h2>   
+      <h4>{{matches.date | date :'MMM d, y, h:mm:ss a'}}</h4> 
+      <button mat-raised-button color="primary" (click)="addToFav(matches)" class="addFav">Add to Favourites<i class="material-icons">
+        bookmark
+        </i></button>
+      </mat-card>
+    </mat-grid-list>
+    </div>
+  </div>

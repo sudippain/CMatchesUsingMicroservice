@@ -1,0 +1,14 @@
+<div class="card-container"> 
+  <div *ngFor="let matches of match" >
+  <mat-card class="mt-6 " style="margin-top: 20px;">
+      <h2>{{matches.name}}</h2>   
+    <h4>{{matches.date | date :'MMM d, y, h:mm:ss a'}}</h4>
+    <button mat-button (click)="deleteFromWatchlist(matches)" class="movie-button"
+    color="warn"><i class="material-icons">
+    delete_forever
+    </i></button>
+
+    </mat-card>
+  </div>
+  <div *ngIf="match.length==0" style="text-align:center;position:relative;"> <h2>Add Favorute Cricket Match</h2></div>
+</div>

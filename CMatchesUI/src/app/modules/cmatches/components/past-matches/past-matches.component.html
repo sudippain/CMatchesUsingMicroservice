@@ -1,0 +1,12 @@
+<div class="card-container">
+<div *ngFor="let matches of prematch ">
+    <mat-card class="mt-6 col-s-12 col-12">
+        <h2>{{matches['team-1']}} Vs {{matches['team-2']}}</h2>   
+      <h4>{{matches.dateTimeGMT | date :'MMM d, y, h:mm:ss a'}}</h4><i class="material-icons">
+        watch_later
+        </i>
+       <h5>{{matches.type}}</h5> 
+      
+      </mat-card>
+    </div>
+  </div>

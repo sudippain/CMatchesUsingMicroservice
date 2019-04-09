@@ -1,0 +1,41 @@
+version: '3'
+services:
+
+  mysql:
+   image: mysql:5.5
+   network_mode: host
+   restart: always
+   ports:
+     - "3306:3306"
+   environment:
+     MYSQL_ROOT_PASSWORD: root
+     MYSQL_DATABASE: cricketmatch
+     
+  user-app:
+   build: userservice/
+   restart: always
+   network_mode: host
+   ports:
+     - "8089:8089"
+   expose:
+     - "8089"
+   depends_on:
+     - mysql  
+  
+  spring:
+   build: favouriteservice/
+   restart: always
+   network_mode: host
+   ports:
+     - "8085:8085"
+   expose:
+     - "8085"
+   depends_on:
+     - mysql
+  
+  angular:
+    build: CMatchesUI/
+    network_mode: host
+    container_name: angular-docker
+    ports:
+      - "4200:4200"

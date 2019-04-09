@@ -1,0 +1,36 @@
+<body>
+    <!-- <mat-card>
+      <p>  <button mat-flat-button>CMatches</button>
+        <button mat-flat-button></button></p>
+        <button mat-flat-button>Register</button></p>
+    </mat-card> -->
+    <form class="login-form" #loginForm="ngForm" [style.fontSize.px]="20">
+      <div class="login-block">
+        <div class="row">
+          <h3>Login</h3>
+        </div>
+
+        <div class="row">
+          <mat-form-field class="login-input-full-width">
+            <input matInput placeholder="User Id" [(ngModel)]="user.userId" name="userId" id="userId" required
+              minlength="5" maxlength="10" #userId="ngModel" class="inputId">
+            <mat-error *ngIf="userId.invalid">User Id: must be 5 to 10 characters long</mat-error>
+          </mat-form-field>
+          <mat-form-field class="login-input-full-width">
+            <input matInput placeholder="Password" type="password" [(ngModel)]="user.password" name="password"
+              id="password" required #password="ngModel" class="inputPass">
+            <mat-error *ngIf="password.invalid">Password is mandatory</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="row">
+          <button class="login-user" type="submit" mat-raised-button (click)="loginUser()"
+            color="primary">Login</button>
+          &nbsp;&nbsp;
+          <button type="reset" mat-raised-button color="primary">Clear</button>
+        </div>
+        <br>
+        <a class="register-button" id="gotoRegister" mat-button routerLink="../register">Don't have an account?</a>
+
+      </div>
+    </form>
+</body>

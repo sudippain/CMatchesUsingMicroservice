@@ -1,0 +1,25 @@
+image: 'maven:3-jdk-8'
+stages:
+    - test
+    - build
+services:
+  - 'mysql:5.5'
+variables:
+ MYSQL_DATABASE: cricketmatch
+ MYSQL_CI_URL: jdbc:mysql://mysql/cricketmatch
+ MYSQL_USER: fsemovieuser
+ MYSQL_PASSWORD: FsePassword
+ MYSQL_ROOT_PASSWORD: root
+cache:
+  paths:
+  - .m2/repository
+  - target
+maven-test:
+ stage: test
+ script: "mvn test -B"
+maven-build:
+ stage: build
+ script: "mvn package -U"
+ artifacts:
+  paths:
+  - target/*.jar

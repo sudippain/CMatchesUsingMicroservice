@@ -1,0 +1,24 @@
+<!-- <div class="card-container">
+<div *ngFor="let matches of match ">
+<mat-card class="mt-6 col-s-12 col-12">
+    <h2>{{matches.score}}</h2>   
+  <h4>{{matches.dateTimeGMT | date :'MMM d, y, h:mm:ss a'}}</h4><i class="material-icons">
+    watch_later
+    </i>
+   <h5>{{matches.type}}</h5> 
+   <h5>Winner Team : {{matches['winner_team']}}</h5>
+  </mat-card>
+</div>
+</div> -->
+
+<div class="card-container">
+  <div *ngFor="let matches of match ">
+  
+  <mat-card class="mt-6 col-s-12 col-12" >
+      <h2> {{matches['team-1']}} Vs {{matches['team-2']}} </h2>
+      <h4>{{matches.score}}</h4>   
+      <h5 class="blink_me">Live</h5>
+    </mat-card>
+  </div>
+  </div>
+  

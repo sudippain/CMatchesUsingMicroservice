@@ -1,0 +1,69 @@
+<body>
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" 
+     [ngClass]="{hidden:!(isHandset$ | async)}"
+     fixedInViewport="false"
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="!(isHandset$ | async)">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+    
+        <span ><img  src="../assets/icon.png" class="md-card-image" alt="Nothing"> </span>
+        <button *ngIf="getToken()" mat-button [routerLink]="['/UserLanding/favourite-list']" class="favourite" style="width:200px; height: 80px;">Favourited</button>
+        <button *ngIf="getToken()" mat-button [routerLink]="['/UserLanding/calendar-matches']" id="upcoming"  style="width:200px;  height: 80px;">upcaming</button>
+        <button *ngIf="getToken()" mat-button [routerLink]="['/UserLanding/current-matches']" class="current" style="width:200px;  height: 80px;">Live<i class="material-icons">
+          videocam
+          </i></button>
+          <button *ngIf="getToken()" mat-button [routerLink]="['/UserLanding/past-matches']" class="past" style="width:200px;  height: 80px;">Recent Matches<i class="material-icons">
+              restore
+              </i></button>
+        <button *ngIf="getToken()" mat-button (click)="logout()" color="warn" class="LogoutButton" style="width:200px;  height: 80px;">logout<i class="material-icons">
+          power_settings_new
+          </i></button>
+     
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar >
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span ><img  src="../assets/icon.png" class="md-card-image" alt="Nothing"> </span>
+      <span class="spacer"></span>
+    
+        <button  *ngIf="!(isHandset$ | async) && getToken()"  mat-button [routerLink]="['/UserLanding/favourite-list']">Favourited<i class="material-icons">
+          favorite
+          </i></button>
+        <button *ngIf="!(isHandset$ | async) && getToken()"  mat-button [routerLink]="['/UserLanding/calendar-matches']">Upcoming<i class="material-icons">
+          calendar_today
+          </i></button>
+        <button *ngIf="!(isHandset$ | async) && getToken()"  mat-button [routerLink]="['/UserLanding/current-matches']">Live<i class="material-icons">
+          videocam
+          </i></button>
+          <button *ngIf="!(isHandset$ | async) && getToken()"  mat-button [routerLink]="['/UserLanding/past-matches']">Recent Matches<i class="material-icons">
+              restore
+              </i></button>
+        <button *ngIf="!(isHandset$ | async) && getToken()"  mat-button (click)="logout()" color="warn" class="LogoutButton">Logout
+          <i class="material-icons">
+            power_settings_new
+            </i></button>
+     
+    </mat-toolbar>
+    <router-outlet></router-outlet> 
+    <!-- Add Content Here -->
+  </mat-sidenav-content>
+</mat-sidenav-container>
+</body>
+<!-- <mat-toolbar >
+  <span ><img  src="../assets/icon.png" class="md-card-image" alt="Nothing"> </span>
+  <button *ngIf="getToken()" mat-button [routerLink]="['/UserLanding/favourite-list']">Favourited</button>
+  <button *ngIf="getToken()" mat-button [routerLink]="['/UserLanding/calendar-matches']">Calendar</button>
+  <button *ngIf="getToken()" mat-button [routerLink]="['/UserLanding/current-matches']">Current</button>
+  <button *ngIf="getToken()" mat-button (click)="logout()" color="warn" class="LogoutButton">Logout</button>
+</mat-toolbar>-->

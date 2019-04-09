@@ -1,0 +1,47 @@
+.register-block {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+.register-input-full-width{
+    width: 100%;
+}
+
+h3{
+    text-align: center;
+}
+
+.signup-form-container {
+    margin-top: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    height: 70vh;
+    overflow-x: hidden;
+} 
+
+.row{
+    font-size: 15px;
+}
+
+.register-input-full-width{
+    margin-top: 8px;
+}
+
+.btnRow{
+    margin-top: 10px;
+}
+
+body{
+  
+    height: 100 vh;
+}
